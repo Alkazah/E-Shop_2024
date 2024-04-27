@@ -6,10 +6,10 @@ public class Artikel {
 
     }
 
-    int artikelnummer;
-    int bestand;
-    String bezeichnung;
-    float preis;
+    private int artikelnummer;
+    private int bestand = 0;
+    private String bezeichnung = "";
+    private double preis = 0.0;
 
     public Artikel(int artikelnummer, int bestand, String bezeichnung, float preis) {
         this.artikelnummer = artikelnummer;
@@ -42,11 +42,11 @@ public class Artikel {
         this.bezeichnung = bezeichnung;
     }
 
-    public float getPreis() {
+    public double getPreis() {
         return preis;
     }
 
-    public void setPreis(float preis) {
+    public void setPreis(double preis) {
         this.preis = preis;
     }
 }
