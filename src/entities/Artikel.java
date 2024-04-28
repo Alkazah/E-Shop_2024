@@ -1,3 +1,5 @@
+package entities;
+
 import javax.swing.*;
 
 public class Artikel {
