@@ -1,45 +1,20 @@
 package entities;
 
-public class Kunde {
-
-    private int kundenNr;
-    private String name = "";
-    private String email = "";
-    private String passwort = "";
+public class Kunde extends Nutzer {
     private String strasse = "";
     private String plz = "";
     private String wohnort = "";
 
-
-    public void setKundenNr(int mitarbeiterNr) {
-        this.kundenNr = mitarbeiterNr;
+    public Kunde(int nummer, String name, String benutzername, String passwort, String strasse, String plz, String wohnort) {
+        super(nummer, name, benutzername, passwort);
+        this.strasse = strasse;
+        this.plz = plz;
+        this.wohnort = wohnort;
     }
 
-    public int getKundenNr() {
-        return kundenNr;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setPasswort(String passwort) {
-        this.passwort = passwort;
-    }
-    public String getPasswort() {
-        return passwort;
+    @Override
+    public boolean istMitarbeiter() {
+        return false;
     }
 
     public void setStrasse(String strasse) {
