@@ -3,29 +3,28 @@ package entities;
 import javax.swing.*;
 
 public class Artikel {
-
-    public static void main(String[] args) {
-
-    }
-
-    private int artikelnummer;
+    private int artikelNr;
     private int bestand = 0;
     private String bezeichnung = "";
     private double preis = 0.0;
 
-    public Artikel(int artikelnummer, int bestand, String bezeichnung, float preis) {
-        this.artikelnummer = artikelnummer;
+    public Artikel(int artikelNr, int bestand, String bezeichnung, float preis) {
+        this.artikelNr = artikelNr;
         this.bestand = bestand;
         this.bezeichnung = bezeichnung;
         this.preis = preis;
     }
 
-    public int getArtikelnummer() {
-        return artikelnummer;
+    public String toString() {
+        return "ArtikelNr: " + artikelNr + ", Bezeichnung: " + bezeichnung + ", Bestand: " + bestand + ", Preis: " + preis;
     }
 
-    public void setArtikelnummer(int artikelnummer) {
-        this.artikelnummer = artikelnummer;
+    public int getArtikelNr() {
+        return artikelNr;
+    }
+
+    public void setArtikelNr(int artikelnummer) {
+        this.artikelNr = artikelnummer;
     }
 
     public int getBestand() {
