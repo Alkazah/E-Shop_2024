@@ -16,7 +16,7 @@ public class Warenkorb {
 
     public void artikelHinzufuegen(Artikel artikel, int menge) {
         if(artikel.getBestand() < this.artikel.getOrDefault(artikel, 0) + menge){
-            System.out.println(artikel.getBezeichnung() + " hat nur: " + artikel.getBestand());
+            System.out.println("Im Lager sind nur noch " + artikel.getBestand() + " " + artikel.getBezeichnung() + " verfügbar.");
             return;
         }
         this.artikel.put(artikel, this.artikel.getOrDefault(artikel, 0) + menge);
