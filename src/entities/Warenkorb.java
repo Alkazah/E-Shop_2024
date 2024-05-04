@@ -15,6 +15,7 @@ public class Warenkorb {
         this.gesamtPreis = gesamtPreis;
     }
 
+
     public void setArtikelBezeichnung(String artikelBezeichnung) {
         this.artikelBezeichnung = artikelBezeichnung;
     }

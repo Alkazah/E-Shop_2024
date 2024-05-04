@@ -12,10 +12,6 @@ public class Kunde extends Nutzer {
         this.wohnort = wohnort;
     }
 
-    @Override
-    public boolean istMitarbeiter() {
-        return false;
-    }
 
     public void setStrasse(String strasse) {
         this.strasse = strasse;
@@ -39,5 +35,10 @@ public class Kunde extends Nutzer {
 
     public String getWohnort() {
         return wohnort;
+    }
+
+    @Override
+    public boolean istMitarbeiter() {
+        return false;
     }
 }

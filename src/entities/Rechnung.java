@@ -40,6 +40,7 @@ public class Rechnung {
 
     @Override
     public String toString() {
-        return "BestellNr: " + bestellNr + ", Kunde: " + kunde.getName() + ", Datum: " + datum + ", Gesamtpreis: " + gesamtpreis;
+        return "BestellNr: " + bestellNr + ", Kunde: " + kunde.getName() +
+                ", Datum: " + datum + ", Gesamtpreis: " + gesamtpreis;
     }
 }

@@ -8,16 +8,13 @@ public class Artikel {
     private String bezeichnung = "";
     private double preis = 0.0;
 
-    public Artikel(int artikelNr, int bestand, String bezeichnung, float preis) {
+    public Artikel(int artikelNr, int bestand, String bezeichnung, double preis) {
         this.artikelNr = artikelNr;
         this.bestand = bestand;
         this.bezeichnung = bezeichnung;
         this.preis = preis;
     }
 
-    public String toString() {
-        return "ArtikelNr: " + artikelNr + ", Bezeichnung: " + bezeichnung + ", Bestand: " + bestand + ", Preis: " + preis;
-    }
 
     public int getArtikelNr() {
         return artikelNr;
@@ -49,5 +46,10 @@ public class Artikel {
 
     public void setPreis(double preis) {
         this.preis = preis;
+    }
+
+    public String toString() {
+        return "ArtikelNr: " + artikelNr + ", Bezeichnung: " + bezeichnung +
+                ", Der aktuelle Bestand ist: " + bestand + ", Preis: " + preis;
     }
 }
