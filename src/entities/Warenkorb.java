@@ -15,6 +15,10 @@ public class Warenkorb {
     }
 
     public void artikelHinzufuegen(Artikel artikel, int menge) {
+        if(artikel.getBestand() < this.artikel.getOrDefault(artikel, 0) + menge){
+            System.out.println(artikel.getBezeichnung() + " hat nur: " + artikel.getBestand());
+            return;
+        }
         this.artikel.put(artikel, this.artikel.getOrDefault(artikel, 0) + menge);
         updateGesamtpreis();
     }

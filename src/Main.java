@@ -36,6 +36,8 @@ public class Main {
         warenkorb.artikelHinzufuegen(Kartoffel, 2);
         warenkorb.artikelHinzufuegen(Pandora, 3);
         System.out.println(warenkorb.getArtikel());
+        System.out.println(warenkorb + "\n");
+
         warenkorb.artikelHinzufuegen(Kartoffel, 2);
         warenkorb.artikelEntfernen(Pandora, 1);
         System.out.println(warenkorb.getArtikel());
