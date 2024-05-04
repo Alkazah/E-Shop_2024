@@ -6,7 +6,7 @@ import java.util.Map;
 public class Warenkorb {
     private Nutzer besitzer;  // Der Nutzer, dem der Warenkorb gehört
     private Map<Artikel, Integer> artikel; // Speichert Artikel und deren Mengen
-    private double gesamtpreis;
+    private double gesamtpreis; // Gesamtpreis aller Artikel im Warenkorb
 
     public Warenkorb(Nutzer besitzer) {
         this.besitzer = besitzer;
@@ -14,15 +14,18 @@ public class Warenkorb {
         this.gesamtpreis = 0.0;
     }
 
+    // Fügt einen Artikel und die gewünschte Menge zum Warenkorb hinzu
     public void artikelHinzufuegen(Artikel artikel, int menge) {
+        // Checkt, ob genug Artikels im Lager gibt
         if(artikel.getBestand() < this.artikel.getOrDefault(artikel, 0) + menge){
             System.out.println("Im Lager sind nur noch " + artikel.getBestand() + " " + artikel.getBezeichnung() + " verfügbar.");
             return;
         }
         this.artikel.put(artikel, this.artikel.getOrDefault(artikel, 0) + menge);
-        updateGesamtpreis();
+        updateGesamtpreis(); // Aktualisiert den Gesamtpreis nach der Änderung
     }
 
+    // Entfernt eine spezifizierte Menge eines Artikels aus dem Warenkorb
     public void artikelEntfernen(Artikel artikel, int menge) {
         int aktuelleMenge = this.artikel.getOrDefault(artikel, 0);
         if (aktuelleMenge <= menge) {
@@ -30,9 +33,10 @@ public class Warenkorb {
         } else {
             this.artikel.put(artikel, aktuelleMenge - menge);
         }
-        updateGesamtpreis();
+        updateGesamtpreis(); // Aktualisiert den Gesamtpreis nach der Änderung
     }
 
+    // Berechnet den Gesamtpreis aller Artikel im Warenkorb basierend auf ihrer Menge und dem Einzelpreis
     private void updateGesamtpreis() {
         double neuerGesamtpreis = 0.0;
         for (Map.Entry<Artikel, Integer> entry : this.artikel.entrySet()) {
