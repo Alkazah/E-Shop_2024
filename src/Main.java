@@ -1,4 +1,5 @@
 import Verwaltungen.NutzerVerwaltung;
+import Verwaltungen.WarenkorbVerwaltung;
 import entities.Artikel;
 import entities.Kunde;
 import entities.Nutzer;
@@ -35,8 +36,13 @@ public class Main {
         warenkorb.artikelHinzufuegen(Kartoffel, 2);
         warenkorb.artikelHinzufuegen(Pandora, 3);
         System.out.println(warenkorb.getArtikel());
+        warenkorb.artikelHinzufuegen(Kartoffel, 2);
         warenkorb.artikelEntfernen(Pandora, 1);
         System.out.println(warenkorb.getArtikel());
         System.out.println(warenkorb);
+
+        System.out.println("###############################");
+        WarenkorbVerwaltung warenkorbVerwaltung = new WarenkorbVerwaltung();
+
     }
 }
