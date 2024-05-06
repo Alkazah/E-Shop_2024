@@ -58,4 +58,3 @@ public class EreignisVerwaltung {
         return sb.toString();
     }
 }
-

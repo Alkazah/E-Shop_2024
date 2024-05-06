@@ -70,4 +70,3 @@ public class Warenkorb {
         return sb.toString();
     }
 }
-

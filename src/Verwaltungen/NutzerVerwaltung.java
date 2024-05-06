@@ -55,4 +55,3 @@ public class NutzerVerwaltung {
         return null; // Gibt null zurück, wenn kein passender Nutzer gefunden wurde
     }
 }
-

@@ -30,4 +30,3 @@ public class Ereignis {
         return "Datum: " + datum + ", Beschreibung: " + beschreibung + ", Beteiligter: " + beteiligter.getName();
     }
 }
-
