@@ -21,7 +21,7 @@ public abstract class Nutzer {
         return name;
     }
 
-    public String getemail() {
+    public String getEmail() {
         return email;
     }
 

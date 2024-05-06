@@ -16,8 +16,8 @@ public class NutzerVerwaltung {
 
     // Methode zum Registrieren eines Kunden mit Adresse
     public void registriereNutzer(int nummer, String name, String email, String passwort, String strasse, String plz, String wohnort) {
-        // Überprüfung, ob der email bereits existiert
-        if (nutzerListe.stream().anyMatch(nutzer -> nutzer.getemail().equals(email))) {
+        // Überprüfung, ob der E-Mail bereits existiert
+        if (nutzerListe.stream().anyMatch(nutzer -> nutzer.getEmail().equals(email))) {
             System.out.println("Benutzername bereits vergeben.");
             return; // Beendet die Methode, falls die E-Mail schon vergeben ist
         }
@@ -31,7 +31,7 @@ public class NutzerVerwaltung {
     // Methode zum Registrieren eines Mitarbeiters ohne Adresse
     public void registriereNutzer(int nummer, String name, String email, String passwort) {
         // Überprüfung, ob die E-Mail bereits in der Liste existiert
-        if (nutzerListe.stream().anyMatch(nutzer -> nutzer.getemail().equals(email))) {
+        if (nutzerListe.stream().anyMatch(nutzer -> nutzer.getEmail().equals(email))) {
             System.out.println("E-Mail bereits vergeben.");
             return; // Beendet die Methode, falls die E-Mail schon vergeben ist
         }
@@ -48,7 +48,7 @@ public class NutzerVerwaltung {
     public Nutzer anmelden(String email, String passwort) {
         // Durchläuft alle Nutzer in der Liste
         for (Nutzer nutzer : nutzerListe) {
-            if (nutzer.getemail().equals(email) && nutzer.getPasswort().equals(passwort)) {
+            if (nutzer.getEmail().equals(email) && nutzer.getPasswort().equals(passwort)) {
                 return nutzer;
             }
         }
