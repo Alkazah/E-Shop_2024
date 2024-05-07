@@ -15,30 +15,30 @@ public class NutzerVerwaltung {
     }
 
     // Methode zum Registrieren eines Kunden mit Adresse
-    public void registriereNutzer(String name, String email, String passwort, String strasse, String plz, String wohnort) {
+    public void kundeRegistrieren(String name, String email, String passwort, String strasse, String plz, String wohnort) {
         // Überprüfung, ob der E-Mail bereits existiert
         if (nutzerListe.stream().anyMatch(nutzer -> nutzer.getEmail().equals(email))) {
-            System.out.println("Benutzername bereits vergeben.");
+            System.out.println("E-Mail oder Benutzername bereits vergeben.");
             return; // Beendet die Methode, falls die E-Mail schon vergeben ist
         }
         // Erstellen eines neuen Kundenobjekts mit den übergebenen Daten
         Nutzer neuerNutzer = new Kunde(name, email, passwort, strasse, plz, wohnort);
-        System.out.println(neuerNutzer.getName() + " erfolgreich registriert.");
+        //System.out.println(neuerNutzer.getName() + " erfolgreich registriert.");
         nutzerListe.add(neuerNutzer); // Hinzufügen des neuen Nutzers zur Liste
         //System.out.println("Nutzer erfolgreich registriert.");
     }
 
     // Methode zum Registrieren eines Mitarbeiters ohne Adresse
-    public void registriereNutzer(String name, String email, String passwort) {
+    public void mitarbeiterRegistrieren(String name, String email, String passwort) {
         // Überprüfung, ob die E-Mail bereits in der Liste existiert
         if (nutzerListe.stream().anyMatch(nutzer -> nutzer.getEmail().equals(email))) {
-            System.out.println("E-Mail bereits vergeben.");
+            System.out.println("E-Mail oder Benutzername bereits vergeben.");
             return; // Beendet die Methode, falls die E-Mail schon vergeben ist
         }
 
         // Erstellen eines neuen Mitarbeiterobjekts mit den übergebenen Daten
         Nutzer neuerNutzer = new Mitarbeiter(name, email, passwort);
-        System.out.println(neuerNutzer.getName() + " erfolgreich registriert.");
+        //System.out.println(neuerNutzer.getName() + " erfolgreich registriert.");
         nutzerListe.add(neuerNutzer); // Hinzufügen des neuen Nutzers zur Liste
         //System.out.println("Nutzer erfolgreich registriert.");
     }
