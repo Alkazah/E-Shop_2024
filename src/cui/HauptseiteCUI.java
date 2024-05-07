@@ -1,6 +1,6 @@
 package cui;
 
-import Verwaltungen.NutzerVerwaltung;
+import Verwaltungen.*;
 import entities.Kunde;
 import entities.Mitarbeiter;
 import entities.Nutzer;
@@ -9,13 +9,22 @@ import java.util.Scanner;
 
 public class HauptseiteCUI {
     private NutzerVerwaltung nutzerVerwaltung;
+    private ArtikelVerwaltung artikelVerwaltung;
+    private WarenkorbVerwaltung warenkorbVerwaltung;
+    private RechnungsVerwaltung rechnungsVerwaltung;
+    private EreignisVerwaltung ereignisVerwaltung;
+    private Scanner scanner;
 
-    public HauptseiteCUI(NutzerVerwaltung nutzerVerwaltung) {
+    public HauptseiteCUI(NutzerVerwaltung nutzerVerwaltung, ArtikelVerwaltung artikelVerwaltung, WarenkorbVerwaltung warenkorbVerwaltung, RechnungsVerwaltung rechnungsVerwaltung, EreignisVerwaltung ereignisVerwaltung, Scanner scanner) {
         this.nutzerVerwaltung = nutzerVerwaltung;
+        this.artikelVerwaltung = artikelVerwaltung;
+        this.warenkorbVerwaltung = warenkorbVerwaltung;
+        this.rechnungsVerwaltung = rechnungsVerwaltung;
+        this.ereignisVerwaltung = ereignisVerwaltung;
+        this.scanner = scanner;
     }
 
     public void start() {
-        Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
         while (running) {
@@ -26,6 +35,7 @@ public class HauptseiteCUI {
             System.out.print("Bitte wählen Sie eine Option: ");
 
             int auswahl = scanner.nextInt();
+            scanner.nextLine();
             switch (auswahl) {
                 case 1:
                     anmelden();
@@ -42,7 +52,6 @@ public class HauptseiteCUI {
                     break;
             }
         }
-        scanner.close();
     }
 
     private void anmelden() {
@@ -55,11 +64,11 @@ public class HauptseiteCUI {
         Nutzer nutzer = nutzerVerwaltung.anmelden(email, passwort);
         if (nutzer != null) {
             if (nutzer instanceof Kunde) {
-                KundenMenu kundenMenu = new KundenMenu();
-                kundenMenu.start((Kunde) nutzer);
+                KundenMenu kundenMenu = new KundenMenu(artikelVerwaltung, warenkorbVerwaltung, rechnungsVerwaltung, ereignisVerwaltung);
+                kundenMenu.start((Kunde) nutzer, scanner);
             } else if (nutzer instanceof Mitarbeiter) {
-                MitarbeiterMenu mitarbeiterMenu = new MitarbeiterMenu();
-                mitarbeiterMenu.start((Mitarbeiter) nutzer);
+                MitarbeiterMenu mitarbeiterMenu = new MitarbeiterMenu(artikelVerwaltung, nutzerVerwaltung, ereignisVerwaltung);
+                mitarbeiterMenu.start((Mitarbeiter) nutzer, scanner);
             }
         } else {
             System.out.println("Anmeldung fehlgeschlagen. Überprüfen Sie Ihre Eingaben.");
@@ -81,12 +90,6 @@ public class HauptseiteCUI {
         String plz = scanner.nextLine();
         System.out.print("Bitte geben Sie Ihren Wohnort ein: ");
         String wohnort = scanner.nextLine();
-        nutzerVerwaltung.registriereNutzer(name, email, passwort, strasse, plz, wohnort);
-    }
-
-    public static void main(String[] args) {
-        NutzerVerwaltung nutzerVerwaltung = new NutzerVerwaltung(); // Diese sollte mit echten Daten initialisiert werden
-        HauptseiteCUI cui = new HauptseiteCUI(nutzerVerwaltung);
-        cui.start();
+        nutzerVerwaltung.kundeRegistrieren(name, email, passwort, strasse, plz, wohnort);
     }
 }
