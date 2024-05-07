@@ -4,22 +4,29 @@ import java.util.Date;
 import java.util.List;
 
 public class Rechnung {
-    private int bestellNr;
+    private int rechnungNr;
     private Kunde kunde;
     private Date datum;
     private List<Artikel> gekaufteArtikel;
     private double gesamtpreis;
 
-    public Rechnung(int bestellNr, Kunde kunde, Date datum, List<Artikel> gekaufteArtikel, double gesamtpreis) {
-        this.bestellNr = bestellNr;
+    public Rechnung(int rechnungNr, Kunde kunde, Date datum, List<Artikel> gekaufteArtikel, double gesamtpreis) {
+        this.rechnungNr = rechnungNr;
         this.kunde = kunde;
         this.datum = datum;
         this.gekaufteArtikel = gekaufteArtikel;
         this.gesamtpreis = gesamtpreis;
     }
 
-    public int getBestellNr() {
-        return bestellNr;
+    public Rechnung(Kunde kunde, Date datum, List<Artikel> gekaufteArtikel, double gesamtpreis) {
+        this.kunde = kunde;
+        this.datum = datum;
+        this.gekaufteArtikel = gekaufteArtikel;
+        this.gesamtpreis = gesamtpreis;
+    }
+
+    public int getRechnungNr() {
+        return rechnungNr;
     }
 
     public Kunde getKunde() {
@@ -40,7 +47,7 @@ public class Rechnung {
 
     @Override
     public String toString() {
-        return "BestellNr: " + bestellNr + ", Kunde: " + kunde.getName() +
+        return "BestellNr: " + rechnungNr + ", Kunde: " + kunde.getName() +
                 ", Datum: " + datum + ", Gesamtpreis: " + gesamtpreis;
     }
 }

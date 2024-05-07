@@ -13,6 +13,12 @@ public abstract class Nutzer {
         this.passwort = passwort;
     }
 
+    public Nutzer(String name, String email, String passwort) {
+        this.name = name;
+        this.email = email;
+        this.passwort = passwort;
+    }
+
     public int getNummer() {
         return nummer;
     }

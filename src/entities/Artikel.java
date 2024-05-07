@@ -15,6 +15,11 @@ public class Artikel {
         this.preis = preis;
     }
 
+    public Artikel(int bestand, String bezeichnung, double preis) {
+        this.bestand = bestand;
+        this.bezeichnung = bezeichnung;
+        this.preis = preis;
+    }
 
     public int getArtikelNr() {
         return artikelNr;

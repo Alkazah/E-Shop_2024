@@ -6,6 +6,10 @@ public class Mitarbeiter extends Nutzer {
         super(nummer, name, benutzername, passwort);
     }
 
+    public Mitarbeiter(String name, String benutzername, String passwort) {
+        super(name, benutzername, passwort);
+    }
+
     @Override
     public boolean istMitarbeiter() {
         return true;

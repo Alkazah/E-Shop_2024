@@ -12,6 +12,13 @@ public class Kunde extends Nutzer {
         this.wohnort = wohnort;
     }
 
+    public Kunde(String name, String benutzername, String passwort, String strasse, String plz, String wohnort) {
+        super(name, benutzername, passwort);
+        this.strasse = strasse;
+        this.plz = plz;
+        this.wohnort = wohnort;
+    }
+
 
     public void setStrasse(String strasse) {
         this.strasse = strasse;
