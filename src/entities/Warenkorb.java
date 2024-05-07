@@ -53,6 +53,16 @@ public class Warenkorb {
         return besitzer;
     }
 
+    public double getGesamtpreis(){
+        return gesamtpreis;
+    }
+
+    // Methode zum Leeren des Warenkorbs
+    public void warenkorbLeeren() {
+        artikel.clear();  // Entfernt alle Einträge in der Map
+        gesamtpreis = 0.0; // Setzt den Gesamtpreis zurück
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Warenkorb von " + besitzer.getName() + ":\n");
