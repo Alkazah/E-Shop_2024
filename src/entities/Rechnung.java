@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Rechnung {
+    private static int nextRechnungNr = 1;
     private int rechnungNr;
     private Kunde kunde;
     private Date datum;
@@ -19,6 +20,7 @@ public class Rechnung {
     }
 
     public Rechnung(Kunde kunde, Date datum, List<Artikel> gekaufteArtikel, double gesamtpreis) {
+        this.rechnungNr = nextRechnungNr++;
         this.kunde = kunde;
         this.datum = datum;
         this.gekaufteArtikel = gekaufteArtikel;

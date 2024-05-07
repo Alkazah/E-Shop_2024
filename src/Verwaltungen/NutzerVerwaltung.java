@@ -23,7 +23,7 @@ public class NutzerVerwaltung {
         }
         // Erstellen eines neuen Kundenobjekts mit den übergebenen Daten
         Nutzer neuerNutzer = new Kunde(name, email, passwort, strasse, plz, wohnort);
-        System.out.println("Kunde erfolgreich registriert.");
+        System.out.println(neuerNutzer.getName() + " erfolgreich registriert.");
         nutzerListe.add(neuerNutzer); // Hinzufügen des neuen Nutzers zur Liste
         //System.out.println("Nutzer erfolgreich registriert.");
     }
@@ -38,7 +38,7 @@ public class NutzerVerwaltung {
 
         // Erstellen eines neuen Mitarbeiterobjekts mit den übergebenen Daten
         Nutzer neuerNutzer = new Mitarbeiter(name, email, passwort);
-        System.out.println("Mitarbeiter erfolgreich registriert.");
+        System.out.println(neuerNutzer.getName() + " erfolgreich registriert.");
         nutzerListe.add(neuerNutzer); // Hinzufügen des neuen Nutzers zur Liste
         //System.out.println("Nutzer erfolgreich registriert.");
     }

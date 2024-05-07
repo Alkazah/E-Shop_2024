@@ -17,8 +17,8 @@ public class RechnungsVerwaltung {
     }
 
     // Erstellt eine neue Rechnung und fügt sie der Liste der Rechnungen hinzu
-    public void rechnungErstellen(int bestellNr, Kunde kunde, Date datum, List<Artikel> gekaufteArtikel, double gesamtpreis) {
-        Rechnung neueRechnung = new Rechnung(bestellNr, kunde, datum, gekaufteArtikel, gesamtpreis);
+    public void rechnungErstellen(Kunde kunde, Date datum, List<Artikel> gekaufteArtikel, double gesamtpreis) {
+        Rechnung neueRechnung = new Rechnung(kunde, datum, gekaufteArtikel, gesamtpreis);
         rechnungen.add(neueRechnung);
         System.out.println("Neue Rechnung erstellt: " + neueRechnung);
     }
