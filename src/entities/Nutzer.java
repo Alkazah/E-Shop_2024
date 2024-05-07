@@ -1,6 +1,7 @@
 package entities;
 
 public abstract class Nutzer {
+    private static int nextNutzerNr = 1;
     private int nummer;
     private String name;
     private String email;
@@ -14,6 +15,7 @@ public abstract class Nutzer {
     }
 
     public Nutzer(String name, String email, String passwort) {
+        this.nummer = nextNutzerNr++;
         this.name = name;
         this.email = email;
         this.passwort = passwort;

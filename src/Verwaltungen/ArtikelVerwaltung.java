@@ -42,7 +42,7 @@ public class ArtikelVerwaltung {
     }
 
     // Artikel nach Artikelname suchen
-    private Artikel artikelSuchen(String bezeichnung) {
+    public Artikel artikelSuchen(String bezeichnung) {
         for (Artikel artikel : artikelListe) {
             if (artikel.getBezeichnung().equalsIgnoreCase(bezeichnung)) {
                 return artikel;

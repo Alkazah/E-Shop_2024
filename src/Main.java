@@ -1,4 +1,5 @@
 import Verwaltungen.ArtikelVerwaltung;
+import Verwaltungen.EreignisVerwaltung;
 import Verwaltungen.NutzerVerwaltung;
 import Verwaltungen.WarenkorbVerwaltung;
 import entities.Artikel;
@@ -30,9 +31,9 @@ public class Main {
         System.out.println();
 
         NutzerVerwaltung nutzerVerwaltung = new NutzerVerwaltung();
-        nutzerVerwaltung.registriereNutzer(2, "Ahmed", "ahmad.com", "123", "null", null, null);
-        nutzerVerwaltung.registriereNutzer(2, "Ahmed", "ahmad.com", "123", "null", null, null);
-        nutzerVerwaltung.registriereNutzer(3, "Ahmed2", "ahmad2.com", "123");
+        nutzerVerwaltung.registriereNutzer("Ahmed", "ahmad.com", "123", "null", null, null);
+        nutzerVerwaltung.registriereNutzer("Ahmed", "ahmad.com", "123", "null", null, null);
+        nutzerVerwaltung.registriereNutzer("Ahmed2", "ahmad2.com", "123");
         System.out.println(nutzerVerwaltung.anmelden("ahmad.com", "123"));
         System.out.println(nutzerVerwaltung.anmelden("ahmad2.com", "123"));
 
@@ -58,7 +59,11 @@ public class Main {
         System.out.println(warenkorb);
 
         System.out.println("###############################");
-        WarenkorbVerwaltung warenkorbVerwaltung = new WarenkorbVerwaltung();
+        EreignisVerwaltung ereignisVerwaltung = new EreignisVerwaltung();
+        Artikel kartoffel = artikelVerwaltung.artikelSuchen("artikelName4");
+        Nutzer mitarbeiter = nutzerVerwaltung.anmelden("ahmad2.com", "123");
+        ereignisVerwaltung.einlagern(kartoffel, 100, mitarbeiter);
+        System.out.println(artikelVerwaltung.getAlleArtikel());
 
     }
 }
