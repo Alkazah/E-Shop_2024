@@ -8,8 +8,8 @@ import entities.Warenkorb;
 public class Main {
 
     public static void main(String[] args) {
-        Artikel Kartoffel = new Artikel(1, 2, "Kartoffel", 12.50);
-        Artikel Pandora = new Artikel(1, 5, "Pandora", 75.00);
+        Artikel Kartoffel = new Artikel(1,"Kartoffel", 2,  12.50);
+        Artikel Pandora = new Artikel(1, "Pandora", 5, 75.00);
         Kunde kunde1 = new Kunde(1, "Haaa","ASsdsad", "asdasdas", "Strasse", "28256", "Bremen");
         System.out.println(kunde1.getName());
         System.out.println(Kartoffel);

@@ -14,43 +14,31 @@ public class ArtikelVerwaltung {
     }
 
     // Artikel hinzufügen (nur von Mitarbeitern ausführbar)
-    public void artikelHinzufuegen(int artikelNr, int bestand, String bezeichnung, double preis, Nutzer nutzer) {
-        if (nutzer.istMitarbeiter()) {
-            Artikel neuerArtikel = new Artikel(artikelNr, bestand, bezeichnung, preis);
-            artikelListe.add(neuerArtikel);
-            System.out.println("Artikel hinzugefügt: " + neuerArtikel);
-        } else {
-            System.out.println("Zugriff verweigert: Nur Mitarbeiter dürfen Artikel hinzufügen.");
-        }
+    public void artikelHinzufuegen(String bezeichnung, int bestand, double preis) {
+        Artikel neuerArtikel = new Artikel(bezeichnung, bestand, preis);
+        artikelListe.add(neuerArtikel);
+        System.out.println("Artikel hinzugefügt: " + neuerArtikel);
     }
 
     // Artikel entfernen (nur von Mitarbeitern ausführbar)
-    public void artikelEntfernen(int artikelNr, Nutzer nutzer) {
-        if (nutzer.istMitarbeiter()) {
-            Artikel artikelZumEntfernen = artikelSuchen(artikelNr);
-            if (artikelZumEntfernen != null) {
-                artikelListe.remove(artikelZumEntfernen);
-                System.out.println("Artikel entfernt: " + artikelZumEntfernen);
-            } else {
-                System.out.println("Artikel nicht gefunden.");
-            }
+    public void artikelEntfernen(int artikelNr) {
+        Artikel artikelZumEntfernen = artikelSuchen(artikelNr);
+        if (artikelZumEntfernen != null) {
+            artikelListe.remove(artikelZumEntfernen);
+            System.out.println("Artikel entfernt: " + artikelZumEntfernen);
         } else {
-            System.out.println("Zugriff verweigert: Nur Mitarbeiter dürfen Artikel entfernen.");
+            System.out.println("Artikel nicht gefunden.");
         }
     }
 
     // Bestand eines Artikels aktualisieren (nur von Mitarbeitern ausführbar)
-    public void bestandAktualisieren(int artikelNr, int neuerBestand, Nutzer nutzer) {
-        if (nutzer.istMitarbeiter()) {
-            Artikel artikel = artikelSuchen(artikelNr);
-            if (artikel != null) {
-                artikel.setBestand(neuerBestand);
-                System.out.println("Bestand aktualisiert: " + artikel);
-            } else {
-                System.out.println("Artikel nicht gefunden.");
-            }
+    public void bestandAktualisieren(int artikelNr, int neuerBestand) {
+        Artikel artikel = artikelSuchen(artikelNr);
+        if (artikel != null) {
+            artikel.setBestand(neuerBestand);
+            System.out.println("Bestand aktualisiert: " + artikel);
         } else {
-            System.out.println("Zugriff verweigert: Nur Mitarbeiter dürfen den Bestand aktualisieren.");
+            System.out.println("Artikel nicht gefunden.");
         }
     }
 

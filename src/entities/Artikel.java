@@ -4,20 +4,20 @@ import javax.swing.*;
 
 public class Artikel {
     private int artikelNr;
-    private int bestand = 0;
     private String bezeichnung = "";
+    private int bestand = 0;
     private double preis = 0.0;
 
-    public Artikel(int artikelNr, int bestand, String bezeichnung, double preis) {
+    public Artikel(int artikelNr, String bezeichnung, int bestand,  double preis) {
         this.artikelNr = artikelNr;
-        this.bestand = bestand;
         this.bezeichnung = bezeichnung;
+        this.bestand = bestand;
         this.preis = preis;
     }
 
-    public Artikel(int bestand, String bezeichnung, double preis) {
-        this.bestand = bestand;
+    public Artikel(String bezeichnung, int bestand, double preis) {
         this.bezeichnung = bezeichnung;
+        this.bestand = bestand;
         this.preis = preis;
     }
 
