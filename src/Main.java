@@ -1,7 +1,6 @@
 import Verwaltungen.ArtikelVerwaltung;
 import Verwaltungen.EreignisVerwaltung;
 import Verwaltungen.NutzerVerwaltung;
-import Verwaltungen.WarenkorbVerwaltung;
 import entities.Artikel;
 import entities.Kunde;
 import entities.Nutzer;
@@ -31,9 +30,9 @@ public class Main {
         System.out.println();
 
         NutzerVerwaltung nutzerVerwaltung = new NutzerVerwaltung();
-        nutzerVerwaltung.registriereNutzer("Ahmed", "ahmad.com", "123", "null", null, null);
-        nutzerVerwaltung.registriereNutzer("Ahmed", "ahmad.com", "123", "null", null, null);
-        nutzerVerwaltung.registriereNutzer("Ahmed2", "ahmad2.com", "123");
+        nutzerVerwaltung.kundeRegistrieren("Ahmed", "ahmad.com", "123", "null", null, null);
+        nutzerVerwaltung.kundeRegistrieren("Ahmed", "ahmad.com", "123", "null", null, null);
+        nutzerVerwaltung.mitarbeiterRegistrieren("Ahmed2", "ahmad2.com", "123");
         System.out.println(nutzerVerwaltung.anmelden("ahmad.com", "123"));
         System.out.println(nutzerVerwaltung.anmelden("ahmad2.com", "123"));
 

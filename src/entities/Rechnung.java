@@ -49,7 +49,7 @@ public class Rechnung {
 
     @Override
     public String toString() {
-        return "BestellNr: " + rechnungNr + ", Kunde: " + kunde.getName() +
+        return "RechnungNr: " + rechnungNr + ", Kunde: " + kunde.getName() +
                 ", Datum: " + datum + ", Gesamtpreis: " + gesamtpreis;
     }
 }

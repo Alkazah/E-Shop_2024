@@ -19,7 +19,7 @@ public class EreignisVerwaltung {
     public void ereignisHinzufuegen(Date datum, String beschreibung, Nutzer beteiligter) {
         Ereignis neuesEreignis = new Ereignis(datum, beschreibung, beteiligter);
         ereignisse.add(neuesEreignis);
-        System.out.println("Ereignis hinzugefügt: " + neuesEreignis);
+        //System.out.println("Ereignis hinzugefügt: " + neuesEreignis);
     }
 
     // Artikel in das Lager einlagern
@@ -27,24 +27,20 @@ public class EreignisVerwaltung {
         if (nutzer.istMitarbeiter()) {
             artikel.setBestand(artikel.getBestand() + menge); // Bestand des Artikels aktualisieren
             ereignisHinzufuegen(new Date(), "Einlagern: " + menge + " Stück von " + artikel.getBezeichnung(), nutzer);
-            System.out.println("Artikel eingelagert: " + menge + " Stück von " + artikel.getBezeichnung());
+            //System.out.println("Artikel eingelagert: " + menge + " Stück von " + artikel.getBezeichnung());
         } else {
             System.out.println("Zugriff verweigert: Nur Mitarbeiter dürfen Artikel einlagern.");
         }
     }
 
     // Artikel aus dem Lager auslagern
-    public void auslagern(Artikel artikel, int menge, Nutzer nutzer) {
-        if (nutzer.istMitarbeiter()) {
-            if (artikel.getBestand() >= menge) {
-                artikel.setBestand(artikel.getBestand() - menge); // Bestand des Artikels aktualisieren
-                ereignisHinzufuegen(new Date(), "Auslagern: " + menge + " Stück von " + artikel.getBezeichnung(), nutzer);
-                System.out.println("Artikel ausgelagert: " + menge + " Stück von " + artikel.getBezeichnung());
-            } else {
-                System.out.println("Nicht genügend Bestand vorhanden. Verfügbar: " + artikel.getBestand());
-            }
+    public void auslagern(Artikel artikel, int menge, Nutzer nutzer){
+        if (artikel.getBestand() >= menge) {
+            artikel.setBestand(artikel.getBestand() - menge); // Bestand des Artikels aktualisieren
+            ereignisHinzufuegen(new Date(), "Auslagern: " + menge + " Stück von " + artikel.getBezeichnung(), nutzer);
+            //System.out.println("Artikel ausgelagert: " + menge + " Stück von " + artikel.getBezeichnung());
         } else {
-            System.out.println("Zugriff verweigert: Nur Mitarbeiter dürfen Artikel auslagern.");
+            System.out.println("Nicht genügend Bestand vorhanden. Verfügbar: " + artikel.getBestand());
         }
     }
 

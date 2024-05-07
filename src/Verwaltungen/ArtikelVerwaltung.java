@@ -16,7 +16,7 @@ public class ArtikelVerwaltung {
     public void artikelHinzufuegen(String bezeichnung, int bestand, double preis) {
         Artikel neuerArtikel = new Artikel(bezeichnung, bestand, preis);
         artikelListe.add(neuerArtikel);
-        System.out.println("Artikel hinzugefügt: " + neuerArtikel);
+        //System.out.println("Artikel hinzugefügt: " + neuerArtikel);
     }
 
     // Artikel entfernen
@@ -24,7 +24,7 @@ public class ArtikelVerwaltung {
         Artikel artikelZumEntfernen = artikelSuchen(Bezeichnung);
         if (artikelZumEntfernen != null) {
             artikelListe.remove(artikelZumEntfernen);
-            System.out.println("Artikel entfernt: " + artikelZumEntfernen);
+            //System.out.println("Artikel entfernt: " + artikelZumEntfernen);
         } else {
             System.out.println("Artikel nicht gefunden.");
         }
@@ -35,7 +35,7 @@ public class ArtikelVerwaltung {
         Artikel artikel = artikelSuchen(Bezeichnung);
         if (artikel != null) {
             artikel.setBestand(neuerBestand);
-            System.out.println("Bestand aktualisiert: " + artikel);
+            //System.out.println("Bestand aktualisiert: " + artikel);
         } else {
             System.out.println("Artikel nicht gefunden.");
         }

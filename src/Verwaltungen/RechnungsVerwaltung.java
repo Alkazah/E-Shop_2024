@@ -20,7 +20,7 @@ public class RechnungsVerwaltung {
     public void rechnungErstellen(Kunde kunde, Date datum, List<Artikel> gekaufteArtikel, double gesamtpreis) {
         Rechnung neueRechnung = new Rechnung(kunde, datum, gekaufteArtikel, gesamtpreis);
         rechnungen.add(neueRechnung);
-        System.out.println("Neue Rechnung erstellt: " + neueRechnung);
+        //System.out.println("Neue Rechnung erstellt: " + neueRechnung);
     }
 
     // Gibt alle Rechnungen zurück
