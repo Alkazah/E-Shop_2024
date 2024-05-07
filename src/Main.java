@@ -1,3 +1,4 @@
+import Verwaltungen.ArtikelVerwaltung;
 import Verwaltungen.NutzerVerwaltung;
 import Verwaltungen.WarenkorbVerwaltung;
 import entities.Artikel;
@@ -8,12 +9,25 @@ import entities.Warenkorb;
 public class Main {
 
     public static void main(String[] args) {
-        Artikel Kartoffel = new Artikel(1,"Kartoffel", 2,  12.50);
+        Artikel Kartoffel = new Artikel("Kartoffel", 2,  12.50);
+        Artikel Kartoffel2 = new Artikel("Kartoffel2", 3,  12.50);
         Artikel Pandora = new Artikel(1, "Pandora", 5, 75.00);
         Kunde kunde1 = new Kunde(1, "Haaa","ASsdsad", "asdasdas", "Strasse", "28256", "Bremen");
         System.out.println(kunde1.getName());
         System.out.println(Kartoffel);
+        System.out.println(Kartoffel2);
+        System.out.println(Pandora);
 
+        ArtikelVerwaltung artikelVerwaltung = new ArtikelVerwaltung();
+        artikelVerwaltung.artikelHinzufuegen("artikelName", 4, 14.50);
+        artikelVerwaltung.artikelHinzufuegen("artikelName2", 6, 16.70);
+        artikelVerwaltung.artikelHinzufuegen("artikelName3", 9, 19.00);
+        artikelVerwaltung.artikelEntfernen("artikelName2");
+        artikelVerwaltung.artikelHinzufuegen("artikelName4", 13, 13.30);
+        artikelVerwaltung.bestandAktualisieren("artikelName3", 5);
+        System.out.println(artikelVerwaltung.getAlleArtikel());
+
+        System.out.println();
 
         NutzerVerwaltung nutzerVerwaltung = new NutzerVerwaltung();
         nutzerVerwaltung.registriereNutzer(2, "Ahmed", "ahmad.com", "123", "null", null, null);

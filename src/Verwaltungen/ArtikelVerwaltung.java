@@ -1,7 +1,6 @@
 package Verwaltungen;
 
 import entities.Artikel;
-import entities.Nutzer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,16 +12,16 @@ public class ArtikelVerwaltung {
         this.artikelListe = new ArrayList<>();
     }
 
-    // Artikel hinzufügen (nur von Mitarbeitern ausführbar)
+    // Artikel hinzufügen
     public void artikelHinzufuegen(String bezeichnung, int bestand, double preis) {
         Artikel neuerArtikel = new Artikel(bezeichnung, bestand, preis);
         artikelListe.add(neuerArtikel);
         System.out.println("Artikel hinzugefügt: " + neuerArtikel);
     }
 
-    // Artikel entfernen (nur von Mitarbeitern ausführbar)
-    public void artikelEntfernen(int artikelNr) {
-        Artikel artikelZumEntfernen = artikelSuchen(artikelNr);
+    // Artikel entfernen
+    public void artikelEntfernen(String Bezeichnung) {
+        Artikel artikelZumEntfernen = artikelSuchen(Bezeichnung);
         if (artikelZumEntfernen != null) {
             artikelListe.remove(artikelZumEntfernen);
             System.out.println("Artikel entfernt: " + artikelZumEntfernen);
@@ -31,9 +30,9 @@ public class ArtikelVerwaltung {
         }
     }
 
-    // Bestand eines Artikels aktualisieren (nur von Mitarbeitern ausführbar)
-    public void bestandAktualisieren(int artikelNr, int neuerBestand) {
-        Artikel artikel = artikelSuchen(artikelNr);
+    // Bestand eines Artikels aktualisieren
+    public void bestandAktualisieren(String Bezeichnung, int neuerBestand) {
+        Artikel artikel = artikelSuchen(Bezeichnung);
         if (artikel != null) {
             artikel.setBestand(neuerBestand);
             System.out.println("Bestand aktualisiert: " + artikel);
@@ -42,10 +41,10 @@ public class ArtikelVerwaltung {
         }
     }
 
-    // Artikel nach Artikelnummer suchen
-    private Artikel artikelSuchen(int artikelNr) {
+    // Artikel nach Artikelname suchen
+    private Artikel artikelSuchen(String bezeichnung) {
         for (Artikel artikel : artikelListe) {
-            if (artikel.getArtikelNr() == artikelNr) {
+            if (artikel.getBezeichnung().equalsIgnoreCase(bezeichnung)) {
                 return artikel;
             }
         }
@@ -66,4 +65,3 @@ public class ArtikelVerwaltung {
         return sb.toString();
     }
 }
-

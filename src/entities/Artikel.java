@@ -1,8 +1,7 @@
 package entities;
 
-import javax.swing.*;
-
 public class Artikel {
+    private static int nextArtikelNr = 1;
     private int artikelNr;
     private String bezeichnung = "";
     private int bestand = 0;
@@ -16,6 +15,7 @@ public class Artikel {
     }
 
     public Artikel(String bezeichnung, int bestand, double preis) {
+        this.artikelNr = nextArtikelNr++;
         this.bezeichnung = bezeichnung;
         this.bestand = bestand;
         this.preis = preis;
@@ -52,6 +52,8 @@ public class Artikel {
     public void setPreis(double preis) {
         this.preis = preis;
     }
+
+    public void artikelVerringern(){ nextArtikelNr--; }
 
     public String toString() {
         return "ArtikelNr: " + artikelNr + ", Bezeichnung: " + bezeichnung +
