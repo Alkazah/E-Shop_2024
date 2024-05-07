@@ -4,8 +4,10 @@ import Verwaltungen.ArtikelVerwaltung;
 import Verwaltungen.EreignisVerwaltung;
 import Verwaltungen.NutzerVerwaltung;
 import entities.Artikel;
+import entities.Ereignis;
 import entities.Mitarbeiter;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class MitarbeiterMenu {
@@ -27,8 +29,9 @@ public class MitarbeiterMenu {
             System.out.println("1. Lagerbestand verwalten");
             System.out.println("2. Produkt hinzufügen");
             System.out.println("3. Produkt entfernen");
-            System.out.println("4. Mitarbeiter registrieren");
-            System.out.println("5. Logout");
+            System.out.println("4. Ereignisse anzeigen");
+            System.out.println("5. Mitarbeiter registrieren");
+            System.out.println("6. Logout");
             System.out.print("Bitte wählen Sie eine Option: ");
             int auswahl = scanner.nextInt();
             scanner.nextLine(); // Konsumiere den Zeilenumbruch nach der Zahleneingabe
@@ -44,9 +47,12 @@ public class MitarbeiterMenu {
                     produktEntfernen(scanner, mitarbeiter);
                     break;
                 case 4:
-                    mitarbeiterRegistrieren(scanner);
+                    ereignisseAnzeigen();
                     break;
                 case 5:
+                    mitarbeiterRegistrieren(scanner);
+                    break;
+                case 6:
                     System.out.println("Sie haben sich ausgeloggt.");
                     running = false;
                     break;
@@ -89,6 +95,18 @@ public class MitarbeiterMenu {
         artikelVerwaltung.artikelHinzufuegen(bezeichnung, bestand, preis);
         ereignisVerwaltung.ereignisHinzufuegen(new java.util.Date(), "Neuer Artikel angelegt: " + bezeichnung, mitarbeiter);
         System.out.println("Artikel erfolgreich hinzugefügt.");
+    }
+
+    private void ereignisseAnzeigen() {
+        List<Ereignis> alleEreignisse = ereignisVerwaltung.getAlleEreignisse();
+        if (alleEreignisse.isEmpty()) {
+            System.out.println("Es gibt keine Ereignisse zu anzeigen.");
+        } else {
+            System.out.println("Ereignisse:");
+            for (Ereignis ereignis : alleEreignisse) {
+                System.out.println(ereignis);
+            }
+        }
     }
 
     private void produktEntfernen(Scanner scanner, Mitarbeiter mitarbeiter) {

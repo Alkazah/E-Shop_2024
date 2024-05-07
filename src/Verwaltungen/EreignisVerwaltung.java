@@ -44,6 +44,10 @@ public class EreignisVerwaltung {
         }
     }
 
+    public List<Ereignis> getAlleEreignisse() {
+        return new ArrayList<>(ereignisse);  // Gibt eine Kopie der Ereignisliste zurück
+    }
+
     // Liste aller Ereignisse ausgeben
     @Override
     public String toString() {
