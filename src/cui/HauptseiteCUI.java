@@ -1,6 +1,8 @@
 package cui;
 
 import Verwaltungen.NutzerVerwaltung;
+import entities.Kunde;
+import entities.Mitarbeiter;
 import entities.Nutzer;
 
 import java.util.Scanner;
@@ -52,8 +54,13 @@ public class HauptseiteCUI {
 
         Nutzer nutzer = nutzerVerwaltung.anmelden(email, passwort);
         if (nutzer != null) {
-            System.out.println("Anmeldung erfolgreich! Willkommen zurück, " + nutzer.getName() + ".");
-            // Weiterleitung zu weiteren Funktionen je nach Nutzerart könnte hier implementiert werden
+            if (nutzer instanceof Kunde) {
+                KundenMenu kundenMenu = new KundenMenu();
+                kundenMenu.start((Kunde) nutzer);
+            } else if (nutzer instanceof Mitarbeiter) {
+                MitarbeiterMenu mitarbeiterMenu = new MitarbeiterMenu();
+                mitarbeiterMenu.start((Mitarbeiter) nutzer);
+            }
         } else {
             System.out.println("Anmeldung fehlgeschlagen. Überprüfen Sie Ihre Eingaben.");
         }

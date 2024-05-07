@@ -48,7 +48,7 @@ public class NutzerVerwaltung {
     public Nutzer anmelden(String email, String passwort) {
         // Durchläuft alle Nutzer in der Liste
         for (Nutzer nutzer : nutzerListe) {
-            if (nutzer.getEmail().equals(email) && nutzer.getPasswort().equals(passwort)) {
+            if (nutzer.getEmail().equalsIgnoreCase(email) && nutzer.getPasswort().equals(passwort)) {
                 return nutzer;
             }
         }
